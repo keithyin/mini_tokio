@@ -91,3 +91,17 @@ impl Task {
     }
 
 }
+
+
+#[cfg(test)]
+mod test {
+
+    #[test]
+    fn testBoxPin() {
+        let pined = Box::pin(10);
+
+        let pined2 = pined;
+
+        println!("{}", pined2);
+    }
+}

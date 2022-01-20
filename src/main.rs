@@ -48,11 +48,13 @@ fn main() {
     let mut mini_tokio = MiniTokio::new();
 
     mini_tokio.spawn(async {
+        let a = [1, 2, 3, 4];
         let when = Instant::now() + Duration::from_millis(10);
         let future = Delay { when };
 
         let out = future.await;
         assert_eq!(out, "done");
+        println!("{:?}", a);
     });
 
     mini_tokio.run();
